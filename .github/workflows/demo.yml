@@ -1,0 +1,18 @@
+name: Ejemplo de Workflow Manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Escribe un mensaje de texto'
+        required: true
+        default: 'Tu mensaje'
+        type: string
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir mensaje por consola
+        run: |
+          echo "El mensaje recibido es: ${{ github.event.inputs.message }}"
